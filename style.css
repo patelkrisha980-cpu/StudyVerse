@@ -492,24 +492,59 @@ body.dark-mode .welcome-banner {
   accent-color: #7766e8;
   vertical-align: middle;
 }
-/* STUDY PLANNER STATUS */
-.planner-status {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  margin-top: 6px;
-}
+/* STUDY PLANNER STATUS AND CARDS */
 
 .planner-item {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 15px;
+  padding: 16px;
   margin: 12px 0;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #f0efff;
+}
+
+.planner-item input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  accent-color: #7766e8;
+  cursor: pointer;
 }
 
 .planner-item div {
   flex: 1;
+  min-width: 0;
+}
+
+.planner-item strong {
+  display: block;
+}
+
+.planner-item small {
+  display: block;
+  margin-top: 6px;
+  color: #777;
+}
+
+.planner-status {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.planner-item button {
+  background: #e36b79;
+  padding: 8px 12px;
+  flex-shrink: 0;
+}
+
+/* DARK MODE */
+body.dark-mode .planner-item {
+  background: #35354d;
+}
+
+body.dark-mode .planner-item small {
+  color: #ccc;
 }
