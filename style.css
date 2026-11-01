@@ -405,3 +405,80 @@ body.dark-mode .welcome-banner {
   background: #303047;
   color: white;
 }
+.progress-section {
+  margin-top: 25px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+  font-size: 14px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #e5e2f5;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#progressFill {
+  width: 0%;
+  height: 100%;
+  background: #6c63ff;
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+/* SEPARATE PAGE NAVIGATION */
+
+.page-section {
+  display: none;
+  animation: pageFade 0.3s ease;
+}
+
+.page-section.active {
+  display: block;
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FIXED SIDEBAR */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.main-content {
+  margin-left: 250px;
+  max-width: none;
+  width: calc(100% - 250px);
+}
+
+/* MOBILE LAYOUT */
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    height: auto;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+}
