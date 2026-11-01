@@ -262,8 +262,8 @@ function showPlannerTasks() {
     const name = document.createElement("strong");
     const date = document.createElement("small");
     const status = document.createElement("span");
+    status.setAttribute("class", "planner-status");
 
-    status.className = "planner-status";
     name.textContent = task.name;
 
     date.textContent =
