@@ -397,9 +397,21 @@ function showTasksPageGoals() {
       label.style.color = "#999";
     }
 
-    item.appendChild(checkbox);
-    item.appendChild(label);
-    goalList.appendChild(item);
+item.appendChild(checkbox);
+item.appendChild(label);
+
+const deleteButton = document.createElement("button");
+deleteButton.textContent = "Delete";
+deleteButton.style.marginLeft = "15px";
+
+deleteButton.addEventListener("click", function () {
+  goals.splice(index, 1);
+  saveGoals();
+  showGoals();
+});
+
+item.appendChild(deleteButton);
+goalList.appendChild(item);
   });
 }
 
