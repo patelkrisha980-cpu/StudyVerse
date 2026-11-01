@@ -68,7 +68,24 @@ function showGoals() {
   document.querySelector(".stat-card h3").textContent =
     completedTasks;
 
+  // Update daily progress
+  const totalGoals = goals.length;
+
+  const progress = totalGoals === 0
+    ? 0
+    : Math.round((completedTasks / totalGoals) * 100);
+
+  document.getElementById("progressText").textContent =
+    progress + "% Completed";
+
+  document.getElementById("progressCount").textContent =
+    completedTasks + "/" + totalGoals + " Goals";
+
+  document.getElementById("progressFill").style.width =
+    progress + "%";
+
   goalButton.textContent = "Add Another Goal";
+  showTasksPageGoals();
 }
 
 showGoals();
@@ -312,3 +329,95 @@ if (localStorage.getItem("studyverseTheme") === "dark") {
   document.body.classList.add("dark-mode");
   themeToggle.textContent = "☀️ Light Mode";
 }
+// STUDYVERSE PAGE NAVIGATION
+
+const navLinks = document.querySelectorAll(".sidebar nav a");
+const pages = document.querySelectorAll(".page-section");
+
+navLinks.forEach(function (link) {
+  link.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const targetId = link.getAttribute("href").substring(1);
+
+    // Hide all pages
+    pages.forEach(function (page) {
+      page.classList.remove("active");
+    });
+
+    // Show selected page
+    const selectedPage = document.getElementById(targetId);
+
+    if (selectedPage) {
+      selectedPage.classList.add("active");
+    }
+
+    // Update active sidebar link
+    navLinks.forEach(function (navLink) {
+      navLink.classList.remove("active");
+    });
+
+    link.classList.add("active");
+
+    // Return to top of selected page
+    document.querySelector(".main-content").scrollTop = 0;
+    window.scrollTo(0, 0);
+  });
+});
+
+// DISPLAY GOALS ON MY TASKS PAGE
+
+function showTasksPageGoals() {
+  const goalList = document.getElementById("goalList");
+
+  if (!goalList) return;
+
+  goalList.innerHTML = "";
+
+  goals.forEach(function (goal, index) {
+    const item = document.createElement("div");
+    item.style.margin = "15px 0";
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = goal.completed;
+
+    checkbox.addEventListener("change", function () {
+      goal.completed = checkbox.checked;
+      saveGoals();
+      showGoals();
+    });
+
+    const label = document.createElement("span");
+    label.textContent = " " + goal.name;
+    label.style.marginLeft = "8px";
+
+    if (goal.completed) {
+      label.style.textDecoration = "line-through";
+      label.style.color = "#999";
+    }
+
+    item.appendChild(checkbox);
+    item.appendChild(label);
+    goalList.appendChild(item);
+  });
+}
+
+// ADD GOALS FROM MY TASKS PAGE
+
+document.getElementById("addGoalButton").addEventListener("click", function () {
+  const goal = prompt("Enter your study goal:");
+
+  if (goal === null || goal.trim() === "") return;
+
+  goals.push({
+    name: goal.trim(),
+    completed: false
+  });
+
+  saveGoals();
+  showGoals();
+});
+
+// SHOW SAVED GOALS
+showTasksPageGoals();
