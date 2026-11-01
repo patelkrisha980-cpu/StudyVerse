@@ -188,21 +188,25 @@ let plannerTasks = JSON.parse(
 
 const plannerInput = document.getElementById("plannerTask");
 const plannerDate = document.getElementById("plannerDate");
+const plannerTime = document.getElementById("plannerTime");
 const plannerList = document.getElementById("plannerList");
 
 document.getElementById("addPlannerTask").addEventListener("click", function () {
   const taskName = plannerInput.value.trim();
   const taskDate = plannerDate.value;
+  const taskTime = plannerTime.value;
 
-  if (!taskName || !taskDate) {
+  if (!taskName || !taskDate || !taskTime) {
     alert("Please enter a task and select a date!");
     return;
   }
 
-  plannerTasks.push({
-    name: taskName,
-    date: taskDate
-  });
+plannerTasks.push({
+  name: taskName,
+  date: taskDate,
+  time: taskTime,
+  completed: false
+});
 
   localStorage.setItem(
     "studyversePlanner",
