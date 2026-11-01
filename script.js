@@ -215,6 +215,7 @@ document.getElementById("addPlannerTask").addEventListener("click", function () 
   showPlannerTasks();
 });
 
+
 function showPlannerTasks() {
   plannerList.innerHTML = "";
 
@@ -229,9 +230,33 @@ function showPlannerTasks() {
     name.textContent = task.name;
     date.textContent = "📅 " + task.date;
 
+    // COMPLETED TASK STYLE
+    if (task.completed) {
+      name.style.textDecoration = "line-through";
+      name.style.color = "#999";
+    }
+
     details.appendChild(name);
     details.appendChild(date);
 
+    // COMPLETION CHECKBOX
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = task.completed || false;
+    checkbox.title = "Mark as completed";
+
+    checkbox.addEventListener("change", function () {
+      task.completed = checkbox.checked;
+
+      localStorage.setItem(
+        "studyversePlanner",
+        JSON.stringify(plannerTasks)
+      );
+
+      showPlannerTasks();
+    });
+
+    // DELETE BUTTON
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     deleteButton.className = "delete-task";
@@ -247,6 +272,7 @@ function showPlannerTasks() {
       showPlannerTasks();
     });
 
+    item.appendChild(checkbox);
     item.appendChild(details);
     item.appendChild(deleteButton);
 
