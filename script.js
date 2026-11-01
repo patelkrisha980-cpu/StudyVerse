@@ -192,9 +192,9 @@ const plannerTime = document.getElementById("plannerTime");
 const plannerList = document.getElementById("plannerList");
 
 document.getElementById("addPlannerTask").addEventListener("click", function () {
-  const taskName = plannerInput.value.trim();
-  const taskDate = plannerDate.value;
-  const taskTime = plannerTime.value;
+ const taskName = plannerInput.value.trim();
+ const taskDate = plannerDate.value;
+ const taskTime = plannerTime.value;
 
   if (!taskName || !taskDate || !taskTime) {
     alert("Please enter a task and select a date!");
@@ -215,6 +215,7 @@ plannerTasks.push({
 
   plannerInput.value = "";
   plannerDate.value = "";
+  plannerTime.value = "";
 
   showPlannerTasks();
 });
