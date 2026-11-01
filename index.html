@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyVerse | Student Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+    <aside class="sidebar">
+      <h2>🚀 StudyVerse</h2>
+
+      <nav>
+        <a href="#" class="active">🏠 Dashboard</a>
+        <a href="#">✅ My Tasks</a>
+        <a href="#focus-timer">⏱️ Focus Timer</a>
+        <a href="#study-planner">📅 Study Planner</a>
+        <a href="#my-notes">📝 My Notes</a>
+      </nav>
+
+      <p class="sidebar-footer">Your journey starts here ✨</p>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h1>Good day, Student! 👋</h1>
+          <button id="themeToggle">🌙 Dark Mode</button>
+          <p>Ready to achieve something amazing today?</p>
+        </div>
+        <div class="avatar">S</div>
+      </header>
+
+      <section class="welcome">
+        <h2>Welcome to your StudyVerse 🌟</h2>
+        <p>Plan better. Focus deeper. Achieve more.</p>
+      </section>
+
+      <section class="stats">
+        <div class="stat-card">
+          <span>📚</span>
+          <h3>0</h3>
+          <p>Tasks Completed</p>
+        </div>
+
+        <div class="stat-card">
+          <span>⏱️</span>
+          <h3 id="studyHours">0 min</h3>
+          <p>Study Time</p>
+        </div>
+
+        <div class="stat-card">
+          <span>🔥</span>
+          <h3>0 days</h3>
+          <p>Study Streak</p>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>Today's Goals 🎯</h2>
+        <p>You haven't added any goals yet.</p>
+        <button>Add Your First Goal</button>
+      </section>
+      
+<section class="content-card timer-card" id="focus-timer">
+  <h2>Focus Timer ⏱️</h2>
+  <p>Stay focused and make every minute count!</p>
+
+  <div class="timer-display" id="timer">25:00</div>
+
+  <div class="timer-buttons">
+    <button id="startTimer">Start</button>
+    <button id="pauseTimer">Pause</button>
+    <button id="resetTimer">Reset</button>
+  </div>
+
+  <p id="timerMessage">Ready to focus? Let's go! 🚀</p>
+</section>
+
+<section class="content-card planner-card" id="study-planner">
+  <h2>My Study Planner 📅</h2>
+  <p>Plan your studies and stay organized.</p>
+
+  <div class="planner-input">
+    <input type="text" id="plannerTask"
+      placeholder="Enter your study task">
+
+    <input type="date" id="plannerDate">
+
+    <button id="addPlannerTask">Add Task</button>
+  </div>
+
+  <div id="plannerList"></div>
+</section>
+
+<section class="content-card notes-card" id="my-notes">
+  <h2>My Notes 📝</h2>
+  <p>Write down important ideas and remember more.</p>
+
+  <input type="text" id="noteTitle" placeholder="Note title">
+
+  <textarea id="noteContent" placeholder="Write your notes here..."></textarea>
+
+  <button id="saveNote">Save Note</button>
+
+  <div id="notesList"></div>
+</section>
+
+      <footer>
+        Made with ❤️ for students | StudyVerse
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
