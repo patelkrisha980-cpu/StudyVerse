@@ -250,8 +250,8 @@ function showPlannerTasks() {
     const date = document.createElement("small");
 
     name.textContent = task.name;
-    date.textContent = "📅 " + task.date;
-
+    date.textContent = "📅 " + task.date + "  🕒 " + (task.time || "No time set");
+    
     if (task.completed) {
       name.style.textDecoration = "line-through";
       name.style.color = "#999";
