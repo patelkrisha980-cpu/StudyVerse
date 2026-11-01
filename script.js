@@ -216,6 +216,7 @@ document.getElementById("addPlannerTask").addEventListener("click", function () 
 });
 
 
+
 function showPlannerTasks() {
   plannerList.innerHTML = "";
 
@@ -223,27 +224,10 @@ function showPlannerTasks() {
     const item = document.createElement("div");
     item.className = "planner-item";
 
-    const details = document.createElement("div");
-    const name = document.createElement("strong");
-    const date = document.createElement("small");
-
-    name.textContent = task.name;
-    date.textContent = "📅 " + task.date;
-
-    // COMPLETED TASK STYLE
-    if (task.completed) {
-      name.style.textDecoration = "line-through";
-      name.style.color = "#999";
-    }
-
-    details.appendChild(name);
-    details.appendChild(date);
-
-    // COMPLETION CHECKBOX
+    // Create checkbox
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.checked = task.completed || false;
-    checkbox.title = "Mark as completed";
+    checkbox.checked = task.completed === true;
 
     checkbox.addEventListener("change", function () {
       task.completed = checkbox.checked;
@@ -256,10 +240,25 @@ function showPlannerTasks() {
       showPlannerTasks();
     });
 
-    // DELETE BUTTON
+    // Create task details
+    const details = document.createElement("div");
+    const name = document.createElement("strong");
+    const date = document.createElement("small");
+
+    name.textContent = task.name;
+    date.textContent = "📅 " + task.date;
+
+    if (task.completed) {
+      name.style.textDecoration = "line-through";
+      name.style.color = "#999";
+    }
+
+    details.appendChild(name);
+    details.appendChild(date);
+
+    // Create delete button
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
-    deleteButton.className = "delete-task";
 
     deleteButton.addEventListener("click", function () {
       plannerTasks.splice(index, 1);
@@ -281,7 +280,10 @@ function showPlannerTasks() {
 }
 
 showPlannerTasks();
-let studyNotes = JSON.parse(localStorage.getItem("studyverseNotes")) || [];
+
+let studyNotes = JSON.parse(
+  localStorage.getItem("studyverseNotes")
+) || [];
 
 const noteTitleInput = document.getElementById("noteTitle");
 const noteContentInput = document.getElementById("noteContent");
@@ -298,7 +300,10 @@ document.getElementById("saveNote").addEventListener("click", function () {
 
   studyNotes.push({ title, content });
 
-  localStorage.setItem("studyverseNotes", JSON.stringify(studyNotes));
+  localStorage.setItem(
+    "studyverseNotes",
+    JSON.stringify(studyNotes)
+  );
 
   noteTitleInput.value = "";
   noteContentInput.value = "";
@@ -324,13 +329,19 @@ function showNotes() {
 
     deleteButton.addEventListener("click", function () {
       studyNotes.splice(index, 1);
-      localStorage.setItem("studyverseNotes", JSON.stringify(studyNotes));
+
+      localStorage.setItem(
+        "studyverseNotes",
+        JSON.stringify(studyNotes)
+      );
+
       showNotes();
     });
 
     item.appendChild(title);
     item.appendChild(content);
     item.appendChild(deleteButton);
+
     notesList.appendChild(item);
   });
 }
