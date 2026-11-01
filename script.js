@@ -222,20 +222,33 @@ plannerTasks.push({
 
 
 
+
 function showPlannerTasks() {
   plannerList.innerHTML = "";
 
-  plannerTasks.forEach(function (task, index) {
+  const now = new Date();
+
+  // Sort sessions by date and time
+  const sortedTasks = plannerTasks
+    .map((task, index) => ({ ...task, originalIndex: index }))
+    .sort((a, b) => {
+      const dateA = new Date(a.date + "T" + (a.time || "23:59"));
+      const dateB = new Date(b.date + "T" + (b.time || "23:59"));
+      return dateA - dateB;
+    });
+
+  sortedTasks.forEach(function (task) {
+    const index = task.originalIndex;
+
     const item = document.createElement("div");
     item.className = "planner-item";
 
-    // Create checkbox
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = task.completed === true;
 
     checkbox.addEventListener("change", function () {
-      task.completed = checkbox.checked;
+      plannerTasks[index].completed = checkbox.checked;
 
       localStorage.setItem(
         "studyversePlanner",
@@ -245,20 +258,19 @@ function showPlannerTasks() {
       showPlannerTasks();
     });
 
-    // Create task details
     const details = document.createElement("div");
     const name = document.createElement("strong");
     const date = document.createElement("small");
     const status = document.createElement("span");
-    status.className = "planner-status";
 
     name.textContent = task.name;
 
     date.textContent =
       "📅 " + task.date + "  🕒 " + (task.time || "No time set");
 
-    const sessionDateTime = new Date(task.date + "T" + (task.time || "23:59"));
-    const now = new Date();
+    const sessionDateTime = new Date(
+      task.date + "T" + (task.time || "23:59")
+    );
 
     if (task.completed) {
       status.textContent = "Completed ✅";
@@ -271,9 +283,11 @@ function showPlannerTasks() {
       status.style.color = "#7766e8";
     }
 
-status.style.display = "block";
-status.style.marginTop = "6px";
-    
+    status.style.display = "block";
+    status.style.marginTop = "6px";
+    date.style.display = "block";
+    date.style.marginTop = "6px";
+
     if (task.completed) {
       name.style.textDecoration = "line-through";
       name.style.color = "#999";
@@ -282,10 +296,7 @@ status.style.marginTop = "6px";
     details.appendChild(name);
     details.appendChild(date);
     details.appendChild(status);
-    date.style.display = "block";
-    date.style.marginTop = "6px";
 
-    // Create delete button
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
 
@@ -307,7 +318,6 @@ status.style.marginTop = "6px";
     plannerList.appendChild(item);
   });
 }
-
 showPlannerTasks();
 
 let studyNotes = JSON.parse(
