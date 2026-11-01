@@ -197,7 +197,7 @@ document.getElementById("addPlannerTask").addEventListener("click", function () 
  const taskTime = plannerTime.value;
 
   if (!taskName || !taskDate || !taskTime) {
-    alert("Please enter a task and select a date!");
+    alert("Please enter a task and select both a date and time!");
     return;
   }
 
@@ -298,6 +298,31 @@ function showPlannerTasks() {
     details.appendChild(date);
     details.appendChild(status);
 
+    const editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+
+    editButton.addEventListener("click", function () {
+      const newName = prompt("Enter new task name:", plannerTasks[index].name);
+
+      if (newName === null || newName.trim() === "") return;
+
+      const newDate = prompt("Enter new date (YYYY-MM-DD):", plannerTasks[index].date);
+
+      if (newDate === null || newDate.trim() === "") return;
+
+      const newTime = prompt("Enter new time (HH:MM):", plannerTasks[index].time);
+
+      if (newTime === null || newTime.trim() === "") return;
+
+      plannerTasks[index].name = newName.trim();
+      plannerTasks[index].date = newDate;
+      plannerTasks[index].time = newTime;
+
+      localStorage.setItem("studyversePlanner", JSON.stringify(plannerTasks));
+
+      showPlannerTasks();
+    });
+    
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
 
@@ -312,9 +337,10 @@ function showPlannerTasks() {
       showPlannerTasks();
     });
 
-    item.appendChild(checkbox);
-    item.appendChild(details);
-    item.appendChild(deleteButton);
+     item.appendChild(checkbox);
+     item.appendChild(details);
+     item.appendChild(editButton);
+     item.appendChild(deleteButton);
 
     plannerList.appendChild(item);
   });
