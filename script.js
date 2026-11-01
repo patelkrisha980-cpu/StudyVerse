@@ -249,9 +249,30 @@ function showPlannerTasks() {
     const details = document.createElement("div");
     const name = document.createElement("strong");
     const date = document.createElement("small");
+    const status = document.createElement("span");
+    status.className = "planner-status";
 
     name.textContent = task.name;
-    date.textContent = "📅 " + task.date + "  🕒 " + (task.time || "No time set");
+
+    date.textContent =
+      "📅 " + task.date + "  🕒 " + (task.time || "No time set");
+
+    const sessionDateTime = new Date(task.date + "T" + (task.time || "23:59"));
+    const now = new Date();
+
+    if (task.completed) {
+      status.textContent = "Completed ✅";
+      status.style.color = "green";
+    } else if (sessionDateTime < now) {
+      status.textContent = "Missed ⚠️";
+      status.style.color = "red";
+    } else {
+      status.textContent = "Upcoming 📅";
+      status.style.color = "#7766e8";
+    }
+
+status.style.display = "block";
+status.style.marginTop = "6px";
     
     if (task.completed) {
       name.style.textDecoration = "line-through";
@@ -260,6 +281,7 @@ function showPlannerTasks() {
 
     details.appendChild(name);
     details.appendChild(date);
+    details.appendChild(status);
     date.style.display = "block";
     date.style.marginTop = "6px";
 
