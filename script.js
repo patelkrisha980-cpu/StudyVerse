@@ -260,6 +260,8 @@ function showPlannerTasks() {
 
     details.appendChild(name);
     details.appendChild(date);
+    date.style.display = "block";
+    date.style.marginTop = "6px";
 
     // Create delete button
     const deleteButton = document.createElement("button");
