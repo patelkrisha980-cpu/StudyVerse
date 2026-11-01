@@ -492,3 +492,24 @@ body.dark-mode .welcome-banner {
   accent-color: #7766e8;
   vertical-align: middle;
 }
+/* STUDY PLANNER STATUS */
+.planner-status {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.planner-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 10px;
+  background: #f0efff;
+}
+
+.planner-item div {
+  flex: 1;
+}
