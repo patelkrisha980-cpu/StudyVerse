@@ -1,197 +1,73 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f5fb">
+  <meta name="description" content="A calm, organized home for your study goals, focus sessions, planner, and notes.">
   <title>StudyVerse | Student Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
   <div class="app">
-
-    <!-- SIDEBAR -->
     <aside class="sidebar">
-      <h2>🚀 StudyVerse</h2>
-
-      <nav>
-        <a href="#dashboard" class="active">🏠 Dashboard</a>
-        <a href="#tasks-page">✅ My Tasks</a>
-        <a href="#focus-timer">⏱️ Focus Timer</a>
-        <a href="#study-planner">📅 Study Planner</a>
-        <a href="#my-notes">📝 My Notes</a>
+      <a class="brand" href="#dashboard" aria-label="StudyVerse home"><span class="brand-mark">✦</span><span>Study<span class="brand-light">Verse</span></span></a>
+      <p class="nav-label">WORKSPACE</p>
+      <nav aria-label="Main navigation">
+        <a href="#dashboard" class="active"><span class="nav-icon">⌂</span> Dashboard</a>
+        <a href="#tasks-page"><span class="nav-icon">✓</span> My Tasks</a>
+        <a href="#focus-timer"><span class="nav-icon">◷</span> Focus Timer</a>
+        <a href="#study-planner"><span class="nav-icon">▦</span> Study Planner</a>
+        <a href="#my-notes"><span class="nav-icon">▤</span> My Notes</a>
       </nav>
-
-      <p class="sidebar-footer">Your journey starts here ✨</p>
+      <div class="sidebar-bottom"><div class="sidebar-tip"><span>✧</span><p><strong>Small steps add up.</strong><br>Keep showing up for yourself.</p></div><p class="sidebar-footer">Your journey starts here ✨</p></div>
     </aside>
 
-    <!-- MAIN CONTENT -->
     <main class="main-content">
-
-      <!-- TOP HEADER -->
       <header class="topbar">
-        <div>
-          <h1>Good day, Student! 👋</h1>
-          <button id="themeToggle">🌙 Dark Mode</button>
-          <p>Ready to achieve something amazing today?</p>
-        </div>
-
-        <div class="avatar">S</div>
+        <div><p class="eyebrow" id="todayLabel">YOUR STUDY SPACE</p><h1>Good day, Student <span class="wave">👋</span></h1><p class="topbar-subtitle">Ready to make today count?</p></div>
+        <div class="topbar-actions"><button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">🌙 <span>Dark mode</span></button><div class="avatar" aria-label="Student profile">S</div></div>
       </header>
 
-
-      <!-- DASHBOARD PAGE -->
       <section class="page-section active" id="dashboard">
-
         <section class="welcome">
-          <h2>Welcome to your StudyVerse 🌟</h2>
-        <p>Plan better. Focus deeper. Achieve more.</p>
+          <div class="welcome-copy"><span class="welcome-kicker">A LITTLE PROGRESS, EVERY DAY</span><h2>Make room for your<br>next big idea.</h2><p>Plan better. Focus deeper. Achieve more—one session at a time.</p><a class="welcome-cta" href="#focus-timer" data-page-link>Start a focus session <span aria-hidden="true">→</span></a></div>
+          <div class="welcome-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="art-book">✦</div><span class="spark spark-one">✦</span><span class="spark spark-two">✧</span><span class="spark spark-three">·</span></div>
         </section>
 
-        <section class="stats">
-          <div class="stat-card">
-            <span>📚</span>
-            <h3>0</h3>
-            <p>Tasks Completed</p>
-          </div>
-
-          <div class="stat-card">
-            <span>⏱️</span>
-            <h3 id="studyHours">0 min</h3>
-            <p>Study Time</p>
-          </div>
-
-          <div class="stat-card">
-            <span>🔥</span>
-            <h3>0 days</h3>
-            <p>Study Streak</p>
-          </div>
+        <section class="stats" aria-label="Your study stats">
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon icon-lilac">✓</span><span class="stat-caption">KEEP IT UP</span></div><h3 id="tasksCompleted">0</h3><p>Tasks completed</p></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon icon-peach">◷</span><span class="stat-caption">TIME WELL SPENT</span></div><h3 id="studyHours">0 min</h3><p>Total study time</p></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon icon-mint">✧</span><span class="stat-caption">BUILD A ROUTINE</span></div><h3 id="studyStreak">0 days</h3><p>Study streak</p></article>
         </section>
 
-        <!-- QUICK ACTIONS -->
-         <section class="content-card quick-actions">
-          <h2>Quick Actions ⚡</h2>
-          <p>What would you like to do today?</p>
+        <section class="content-card chart-card" aria-labelledby="weeklyTitle"><div class="section-heading"><div><p class="eyebrow">YOUR CONSISTENCY</p><h2 id="weeklyTitle">Weekly study progress</h2><p class="section-subtitle">A little time invested each day goes a long way.</p></div><div class="chart-summary"><strong id="weeklyStudyTotal">0 min</strong><span>this week</span></div></div><div id="weeklyChart" class="weekly-chart" role="img" aria-label="Study time during the last seven days"></div><p class="chart-note">Study time is recorded while your focus timer is running.</p></section>
 
+        <section class="content-card quick-actions"><div class="section-heading"><div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2>Quick actions</h2><p class="section-subtitle">Your next step is just one click away.</p></div></div>
           <div class="quick-actions-grid">
-            <a href="#tasks-page" class="quick-action">✅ <span>Manage Tasks</span></a>
-            <a href="#focus-timer" class="quick-action">⏱️ <span>Start Focusing</span></a>
-            <a href="#study-planner" class="quick-action">📅 <span>Plan Studies</span></a>
-            <a href="#my-notes" class="quick-action">📝 <span>Write Notes</span></a>
+            <a href="#tasks-page" class="quick-action action-purple" data-page-link><span class="action-icon">✓</span><span class="action-copy"><strong>Manage tasks</strong><small>Check off your goals</small></span><span class="action-arrow">↗</span></a>
+            <a href="#focus-timer" class="quick-action action-peach" data-page-link><span class="action-icon">◷</span><span class="action-copy"><strong>Start focusing</strong><small>Begin a 25-minute session</small></span><span class="action-arrow">↗</span></a>
+            <a href="#study-planner" class="quick-action action-blue" data-page-link><span class="action-icon">▦</span><span class="action-copy"><strong>Plan studies</strong><small>Organize your week</small></span><span class="action-arrow">↗</span></a>
+            <a href="#my-notes" class="quick-action action-green" data-page-link><span class="action-icon">▤</span><span class="action-copy"><strong>Write a note</strong><small>Save a bright idea</small></span><span class="action-arrow">↗</span></a>
           </div>
         </section>
 
-        <!-- TODAY'S GOALS -->
-        <section class="content-card" id="today-goals">
-          <h2>Today's Goals 🎯</h2>
-          <p>You haven't added any goals yet.</p>
-           <button>Add Your First Goal</button>
-
-          <div class="progress-section">
-            <h3>Daily Progress</h3>
-            <div class="progress-info">
-               <span id="progressText">0% Completed</span>
-              <span id="progressCount">0/0 Goals</span>
-            </div>
-            <div class="progress-bar">
-              <div id="progressFill"></div>
-            </div>
-          </div>
-         </section>
-
+        <section class="content-card goals-card" id="today-goals"><div class="section-heading"><div><p class="eyebrow">ONE THING AT A TIME</p><h2>Today's goals <span aria-hidden="true">🎯</span></h2><p class="section-subtitle">Choose a few meaningful things to focus on today.</p></div><button id="addFirstGoal" type="button">＋ Add a goal</button></div><p class="goal-intro">You haven't added any goals yet.</p><div class="progress-section"><div class="progress-info"><strong>Daily progress</strong><span><span id="progressText">0% Completed</span> <span class="progress-divider">·</span> <span id="progressCount">0/0 Goals</span></span></div><div class="progress-bar" role="progressbar" aria-label="Daily goals completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progressFill"></div></div></div></section>
       </section>
 
+      <section class="page-section" id="tasks-page"><section class="content-card"><div class="section-heading"><div><p class="eyebrow">YOUR DAILY CHECKLIST</p><h2>My tasks <span aria-hidden="true">✓</span></h2><p class="section-subtitle">Break your study goals into small, satisfying wins.</p></div><button id="addGoalButton" type="button">＋ Add a goal</button></div><div id="goalList" class="goal-list"></div></section></section>
 
-      <!-- MY TASKS PAGE -->
-      <section class="page-section" id="tasks-page">
-        <section class="content-card">
-          <h2>My Tasks ✅</h2>
-          <p>Manage your daily study goals here.</p>
+      <section class="page-section" id="focus-timer"><section class="content-card timer-card"><p class="eyebrow">ONE THING AT A TIME</p><h2>Focus timer <span aria-hidden="true">◷</span></h2><p class="section-subtitle">Find your flow. Your study time is tracked automatically.</p><div class="timer-ring"><div class="timer-display" id="timer" role="timer" aria-live="polite">25:00</div><span>MINUTES OF FOCUS</span></div><div class="timer-buttons"><button id="startTimer" type="button">Start focusing</button><button id="pauseTimer" type="button" class="button-secondary">Pause</button><button id="resetTimer" type="button" class="button-quiet">Reset</button></div><p id="timerMessage" aria-live="polite">Ready to focus? Let's go! 🚀</p></section></section>
 
-          <button id="addGoalButton">+ Add a Goal</button>
+      <section class="page-section" id="study-planner"><section class="content-card planner-card"><div class="section-heading"><div><p class="eyebrow">MAKE TIME FOR WHAT MATTERS</p><h2>Study planner <span aria-hidden="true">▦</span></h2><p class="section-subtitle">Map out your sessions and keep your week on track.</p></div></div><div class="planner-input"><label class="field field-wide"><span>Study session</span><input type="text" id="plannerTask" placeholder="e.g. Review biology notes" autocomplete="off"></label><label class="field"><span>Date</span><input type="date" id="plannerDate"></label><label class="field"><span>Start time</span><input type="time" id="plannerTime"></label><button id="addPlannerTask" type="button">＋ Add session</button></div><div class="list-heading"><h3>Upcoming sessions</h3><span class="list-hint">Check a session when it's done</span></div><div id="plannerList" class="planner-list"></div></section></section>
 
-          <div id="goalList"></div>
-        </section>
-      </section>
-
-      <!-- FOCUS TIMER PAGE -->
-      <section class="page-section" id="focus-timer">
-        <section class="content-card timer-card">
-          <h2>Focus Timer ⏱️</h2>
-          <p>Stay focused and make every minute count!</p>
-
-          <div class="timer-display" id="timer">25:00</div>
-
-          <div class="timer-buttons">
-            <button id="startTimer">Start</button>
-            <button id="pauseTimer">Pause</button>
-            <button id="resetTimer">Reset</button>
-          </div>
-
-          <p id="timerMessage">Ready to focus? Let's go! 🚀</p>
-        </section>
-      </section>
-
-      <!-- STUDY PLANNER PAGE -->
-      <section class="page-section" id="study-planner">
-        <section class="content-card planner-card">
-          <h2>My Study Planner 📅</h2>
-          <p>Plan your studies and stay organized.</p>
-
-          <div class="planner-input">
-            <input
-              type="text"
-              id="plannerTask"
-              placeholder="Enter subject or study task"
-            >
-
-            <input type="date" id="plannerDate">
-
-            <input type="time" id="plannerTime">
-
-            <button id="addPlannerTask">Add Study Session</button>
-          </div>
-
-          <div id="plannerList"></div>
-        </section>
-      </section>
-
-      <!-- MY NOTES PAGE -->
-      <section class="page-section" id="my-notes">
-        <section class="content-card notes-card">
-          <h2>My Notes 📝</h2>
-          <p>Write down important ideas and remember more.</p>
-
-          <input
-            type="text"
-            id="noteTitle"
-            placeholder="Note title"
-          >
-
-          <textarea
-            id="noteContent"
-            placeholder="Write your notes here..."
-          ></textarea>
-
-          <button id="saveNote">Save Note</button>
-
-          <div id="notesList"></div>
-        </section>
-      </section>
-
-      <!-- FOOTER -->
-      <footer>
-        Made with ❤️ for students | StudyVerse
-      </footer>
-
+      <section class="page-section" id="my-notes"><section class="content-card notes-card"><div class="section-heading"><div><p class="eyebrow">COLLECT YOUR THOUGHTS</p><h2>My notes <span aria-hidden="true">▤</span></h2><p class="section-subtitle">Keep the ideas you want to come back to.</p></div></div><div class="notes-editor"><label class="field"><span>Note title</span><input type="text" id="noteTitle" placeholder="Give your note a title" autocomplete="off"></label><label class="field"><span>Your note</span><textarea id="noteContent" placeholder="Write down an idea, a reminder, or something you learned..."></textarea></label><div class="notes-form-footer"><span>Your notes stay saved in this browser.</span><button id="saveNote" type="button">Save note <span aria-hidden="true">→</span></button></div></div><div class="notes-list-header"><div><h3>Saved notes</h3><span id="notesCount" class="notes-count">0 notes</span></div><label class="search-field"><span class="sr-only">Search saved notes</span><span aria-hidden="true">⌕</span><input type="search" id="notesSearch" placeholder="Search notes..."></label></div><div id="notesList" class="notes-list"></div></section></section>
+      <footer>Made with care for curious minds <span aria-hidden="true">✦</span> StudyVerse</footer>
     </main>
-
   </div>
-
-  <!-- JAVASCRIPT -->
   <script src="script.js"></script>
-
 </body>
 </html>
