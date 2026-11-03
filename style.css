@@ -548,3 +548,176 @@ body.dark-mode .planner-item {
 body.dark-mode .planner-item small {
   color: #ccc;
 }
+
+/* ===== STUDYVERSE MODERN DASHBOARD UPGRADE ===== */
+
+body {
+  background: #f7f6ff;
+  color: #29264b;
+}
+
+.sidebar {
+  background: linear-gradient(180deg, #211d42, #373064);
+  box-shadow: 5px 0 25px rgba(35, 29, 70, 0.12);
+  z-index: 10;
+}
+
+.sidebar h2 {
+  font-size: 25px;
+  letter-spacing: -0.5px;
+}
+
+.sidebar nav a {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+.sidebar nav a:hover {
+  transform: translateX(5px);
+}
+
+.sidebar nav a.active {
+  background: linear-gradient(100deg, #806cf0, #a18cf5);
+  box-shadow: 0 5px 15px rgba(128, 108, 240, 0.3);
+}
+
+.main-content {
+  padding: 40px;
+}
+
+.topbar {
+  margin-bottom: 35px;
+}
+
+.topbar h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.avatar {
+  box-shadow: 0 5px 15px rgba(119, 102, 232, 0.3);
+}
+
+.welcome {
+  background: linear-gradient(115deg, #7161df, #a18cf5);
+  padding: 42px;
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(119, 102, 232, 0.18);
+}
+
+.welcome h2 {
+  font-size: 28px;
+}
+
+.stats {
+  gap: 22px;
+}
+
+.stat-card {
+  border: 1px solid #eeecfa;
+  border-radius: 20px;
+  padding: 28px;
+  transition: 0.25s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(50, 40, 100, 0.09);
+}
+
+.stat-card h3 {
+  font-size: 30px;
+}
+
+.content-card {
+  border: 1px solid #eeecfa;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 25px rgba(50, 40, 100, 0.05);
+}
+
+.content-card h2 {
+  font-size: 23px;
+}
+
+button {
+  box-shadow: 0 4px 12px rgba(119, 102, 232, 0.15);
+}
+
+.progress-bar {
+  height: 14px;
+  background: #eae7fa;
+}
+
+#progressFill {
+  background: linear-gradient(90deg, #7766e8, #b19aff);
+}
+
+.planner-item,
+.note-item {
+  border: 1px solid #e9e5fa;
+  border-radius: 15px;
+  padding: 18px;
+}
+
+input, textarea {
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border-color: #7766e8 !important;
+  box-shadow: 0 0 0 3px rgba(119, 102, 232, 0.12);
+}
+
+/* DARK MODE IMPROVEMENTS */
+
+body.dark-mode {
+  background: #171725;
+}
+
+body.dark-mode .content-card,
+body.dark-mode .stat-card {
+  background: #252538;
+  border-color: #3c3a55;
+}
+
+body.dark-mode .planner-item,
+body.dark-mode .note-item {
+  background: #35354d;
+  border-color: #494765;
+}
+
+body.dark-mode .progress-bar {
+  background: #41405b;
+}
+
+/* MOBILE IMPROVEMENTS */
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 20px;
+  }
+
+  .topbar h1 {
+    font-size: 22px;
+  }
+
+  .welcome {
+    padding: 25px;
+  }
+
+  .welcome h2 {
+    font-size: 22px;
+  }
+
+  .content-card {
+    padding: 22px;
+  }
+
+  .planner-item {
+    flex-wrap: wrap;
+  }
+}
