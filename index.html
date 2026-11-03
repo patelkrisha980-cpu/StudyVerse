@@ -7,9 +7,12 @@
   <title>StudyVerse | Student Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <div class="app">
+
+    <!-- SIDEBAR -->
     <aside class="sidebar">
       <h2>🚀 StudyVerse</h2>
 
@@ -24,124 +27,188 @@
       <p class="sidebar-footer">Your journey starts here ✨</p>
     </aside>
 
-    
-<main class="main-content">
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
 
-  <header class="topbar">
-    <div>
-      <h1>Good day, Student! 👋</h1>
-      <button id="themeToggle">🌙 Dark Mode</button>
-      <p>Ready to achieve something amazing today?</p>
-    </div>
-    <div class="avatar">S</div>
-  </header>
-
-  <!-- DASHBOARD PAGE -->
-  <section class="page-section active" id="dashboard">
-    <section class="welcome">
-      <h2>Welcome to your StudyVerse 🌟</h2>
-      <p>Plan better. Focus deeper. Achieve more.</p>
-    </section>
-
-    <section class="stats">
-      <div class="stat-card">
-        <span>📚</span>
-        <h3>0</h3>
-        <p>Tasks Completed</p>
-      </div>
-
-      <div class="stat-card">
-        <span>⏱️</span>
-        <h3 id="studyHours">0 min</h3>
-        <p>Study Time</p>
-      </div>
-
-      <div class="stat-card">
-        <span>🔥</span>
-        <h3>0 days</h3>
-        <p>Study Streak</p>
-      </div>
-    </section>
-
-    <section class="content-card" id="today-goals">
-      <h2>Today's Goals 🎯</h2>
-      <p>You haven't added any goals yet.</p>
-      <button>Add Your First Goal</button>
-
-      <div class="progress-section">
-        <h3>Daily Progress</h3>
-        <div class="progress-info">
-          <span id="progressText">0% Completed</span>
-          <span id="progressCount">0/0 Goals</span>
+      <!-- TOP HEADER -->
+      <header class="topbar">
+        <div>
+          <h1>Good day, Student! 👋</h1>
+          <button id="themeToggle">🌙 Dark Mode</button>
+          <p>Ready to achieve something amazing today?</p>
         </div>
-        <div class="progress-bar">
-          <div id="progressFill"></div>
-        </div>
-      </div>
-    </section>
-  </section>
 
-  <!-- MY TASKS PAGE -->
-<section class="page-section" id="tasks-page">
-  <section class="content-card">
-    <h2>My Tasks ✅</h2>
-    <p>Manage your daily study goals here.</p>
-    <button id="addGoalButton">+ Add a Goal</button>
-    <div id="goalList"></div>
-  </section>
-</section>
+        <div class="avatar">S</div>
+      </header>
 
-  <!-- FOCUS TIMER PAGE -->
-  <section class="page-section" id="focus-timer">
-    <section class="content-card timer-card">
-      <h2>Focus Timer ⏱️</h2>
-      <p>Stay focused and make every minute count!</p>
-      <div class="timer-display" id="timer">25:00</div>
-      <div class="timer-buttons">
-        <button id="startTimer">Start</button>
-        <button id="pauseTimer">Pause</button>
-        <button id="resetTimer">Reset</button>
-      </div>
-      <p id="timerMessage">Ready to focus? Let's go! 🚀</p>
-    </section>
-  </section>
+      <!-- DASHBOARD PAGE -->
+      <section class="page-section active" id="dashboard">
 
-  <!-- STUDY PLANNER PAGE -->
-  <section class="page-section" id="study-planner">
-    <section class="content-card planner-card">
-      <h2>My Study Planner 📅</h2>
-      <p>Plan your studies and stay organized.</p>
-      <div class="planner-input">
-          <input type="text" id="plannerTask" placeholder="Enter subject or study task">
-          <input type="date" id="plannerDate">
-          <input type="time" id="plannerTime">
-          <button id="addPlannerTask">Add Study Session</button>
-      </div>
-      <div id="plannerList"></div>
-    </section>
-  </section>
+        <!-- WELCOME BANNER -->
+        <section class="welcome">
+          <h2>Welcome to your StudyVerse 🌟</h2>
+          <p>Plan better. Focus deeper. Achieve more.</p>
+        </section>
 
-  <!-- MY NOTES PAGE -->
-  <section class="page-section" id="my-notes">
-    <section class="content-card notes-card">
-      <h2>My Notes 📝</h2>
-      <p>Write down important ideas and remember more.</p>
-      <input type="text" id="noteTitle" placeholder="Note title">
-      <textarea id="noteContent"
-        placeholder="Write your notes here..."></textarea>
-      <button id="saveNote">Save Note</button>
-      <div id="notesList"></div>
-    </section>
-  </section>
+        <!-- STATISTICS -->
+        <section class="stats">
 
-  <footer>
-    Made with ❤️ for students | StudyVerse
-  </footer>
+          <div class="stat-card">
+            <span>📚</span>
+            <h3>0</h3>
+            <p>Tasks Completed</p>
+          </div>
 
-</main>
+          <div class="stat-card">
+            <span>⏱️</span>
+            <h3 id="studyHours">0 min</h3>
+            <p>Study Time</p>
+          </div>
+
+          <div class="stat-card">
+            <span>🔥</span>
+            <h3>0 days</h3>
+            <p>Study Streak</p>
+          </div>
+
+        </section>
+
+        <!-- QUICK ACTIONS -->
+        <section class="content-card quick-actions">
+          <h2>Quick Actions ⚡</h2>
+          <p>What would you like to do today?</p>
+
+          <div class="quick-actions-grid">
+
+            <a href="#tasks-page" class="quick-action">
+              ✅ <span>Manage Tasks</span>
+            </a>
+
+            <a href="#focus-timer" class="quick-action">
+              ⏱️ <span>Start Focusing</span>
+            </a>
+
+            <a href="#study-planner" class="quick-action">
+              📅 <span>Plan Studies</span>
+            </a>
+
+            <a href="#my-notes" class="quick-action">
+              📝 <span>Write Notes</span>
+            </a>
+
+          </div>
+        </section>
+
+        <!-- TODAY'S GOALS -->
+        <section class="content-card" id="today-goals">
+          <h2>Today's Goals 🎯</h2>
+          <p>You haven't added any goals yet.</p>
+          <button>Add Your First Goal</button>
+
+          <div class="progress-section">
+            <h3>Daily Progress</h3>
+
+            <div class="progress-info">
+              <span id="progressText">0% Completed</span>
+              <span id="progressCount">0/0 Goals</span>
+            </div>
+
+            <div class="progress-bar">
+              <div id="progressFill"></div>
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- MY TASKS PAGE -->
+      <section class="page-section" id="tasks-page">
+        <section class="content-card">
+          <h2>My Tasks ✅</h2>
+          <p>Manage your daily study goals here.</p>
+
+          <button id="addGoalButton">+ Add a Goal</button>
+
+          <div id="goalList"></div>
+        </section>
+      </section>
+
+      <!-- FOCUS TIMER PAGE -->
+      <section class="page-section" id="focus-timer">
+        <section class="content-card timer-card">
+          <h2>Focus Timer ⏱️</h2>
+          <p>Stay focused and make every minute count!</p>
+
+          <div class="timer-display" id="timer">25:00</div>
+
+          <div class="timer-buttons">
+            <button id="startTimer">Start</button>
+            <button id="pauseTimer">Pause</button>
+            <button id="resetTimer">Reset</button>
+          </div>
+
+          <p id="timerMessage">Ready to focus? Let's go! 🚀</p>
+        </section>
+      </section>
+
+      <!-- STUDY PLANNER PAGE -->
+      <section class="page-section" id="study-planner">
+        <section class="content-card planner-card">
+          <h2>My Study Planner 📅</h2>
+          <p>Plan your studies and stay organized.</p>
+
+          <div class="planner-input">
+            <input
+              type="text"
+              id="plannerTask"
+              placeholder="Enter subject or study task"
+            >
+
+            <input type="date" id="plannerDate">
+
+            <input type="time" id="plannerTime">
+
+            <button id="addPlannerTask">Add Study Session</button>
+          </div>
+
+          <div id="plannerList"></div>
+        </section>
+      </section>
+
+      <!-- MY NOTES PAGE -->
+      <section class="page-section" id="my-notes">
+        <section class="content-card notes-card">
+          <h2>My Notes 📝</h2>
+          <p>Write down important ideas and remember more.</p>
+
+          <input
+            type="text"
+            id="noteTitle"
+            placeholder="Note title"
+          >
+
+          <textarea
+            id="noteContent"
+            placeholder="Write your notes here..."
+          ></textarea>
+
+          <button id="saveNote">Save Note</button>
+
+          <div id="notesList"></div>
+        </section>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+        Made with ❤️ for students | StudyVerse
+      </footer>
+
+    </main>
 
   </div>
 
+  <!-- JAVASCRIPT -->
   <script src="script.js"></script>
+
 </body>
 </html>
